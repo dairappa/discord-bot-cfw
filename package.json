@@ -5,9 +5,11 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@hono/zod-validator": "^0.1.10",
     "discord-api-types": "^0.37.61",
     "discord-interactions": "^3.4.0",
-    "hono": "^3.8.2"
+    "hono": "^3.8.2",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20231025.0",
