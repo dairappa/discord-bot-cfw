@@ -5,6 +5,9 @@ import { testClient } from 'hono/testing'
 const app = new Hono()
     .get('/', (c) => c.text('Hello Hono!'))
     .post('/message', async (c) => {
+        const clonedBody = c.req.raw.clone()
+        const body = await clonedBody.json()
+        console.log(body)
         return c.text('POST /')
     })
 
@@ -21,7 +24,7 @@ if (import.meta.vitest) {
 
     it('test', async () => {
         const res = await testClient(app).message.$post({
-            form: {
+            json: {
                 title: 'Hello',
                 body: 'Hono is a cool project',
             },
